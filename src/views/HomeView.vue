@@ -28,13 +28,23 @@
         <h2 class="h5 text-uppercase mb-4">Browse our categories</h2>
       </header>
       <div class="row">
+        <p v-if="error">{{ error }}</p>
+        <div v-if="documents">
+          <ul>
+            {{
+              documents[3]
+            }}
+          </ul>
+        </div>
         <div class="col-md-4">
           <a class="category-item" href="shop.html"
             ><img
               class="img-fluid"
               src="src/assets/img/cat-img-1.jpg"
               alt=""
-            /><strong class="category-item-title">Clothes</strong></a
+            /><strong class="category-item-title">{{
+              documents[2].name
+            }}</strong></a
           >
         </div>
         <div class="col-md-4">
@@ -43,13 +53,17 @@
               class="img-fluid"
               src="src/assets/img/cat-img-2.jpg"
               alt=""
-            /><strong class="category-item-title">Shoes</strong></a
+            /><strong class="category-item-title">{{
+              documents[3].name
+            }}</strong></a
           ><a class="category-item" href="shop.html"
             ><img
               class="img-fluid"
               src="src/assets/img/cat-img-3.jpg"
               alt=""
-            /><strong class="category-item-title">Watches</strong></a
+            /><strong class="category-item-title">{{
+              documents[0].name
+            }}</strong></a
           >
         </div>
         <div class="col-md-4">
@@ -58,7 +72,9 @@
               class="img-fluid"
               src="src/assets/img/cat-img-4.jpg"
               alt=""
-            /><strong class="category-item-title">Electronics</strong></a
+            /><strong class="category-item-title">{{
+              documents[1].name
+            }}</strong></a
           >
         </div>
       </div>
@@ -531,5 +547,13 @@
     </div>
   </footer>
 </template>
-<script setup>
+<script>
+import getCollection from "../composables/getCollection";
+
+export default {
+  setup() {
+    const { error, documents } = getCollection("categories");
+    return { error, documents };
+  },
+};
 </script>
