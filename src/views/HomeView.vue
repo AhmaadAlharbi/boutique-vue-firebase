@@ -29,13 +29,13 @@
       </header>
       <div class="row">
         <p v-if="error">{{ error }}</p>
-        <div v-if="documents">
+        <!-- <div v-if="documents">
           <ul>
             {{
               documents[3]
             }}
           </ul>
-        </div>
+        </div> -->
         <div class="col-md-4">
           <a class="category-item" href="shop.html"
             ><img

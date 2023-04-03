@@ -5,6 +5,7 @@ import Signup from "../views/Signup.vue";
 import Shop from "../views/Shop.vue";
 import Cart from "../views/Cart.vue";
 import AddCategory from "../views/dashboard/AddCategory.vue";
+import AddProduct from "../views/dashboard/AddProduct.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: "/add-category",
       name: "AddCategory",
       component: AddCategory,
+    },
+    {
+      path: "/add-product",
+      name: "AddProduct",
+      component: AddProduct,
     },
   ],
 });
