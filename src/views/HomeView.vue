@@ -2,7 +2,6 @@
 <template>
   <div class="container">
     <!-- HERO SECTION-->
-
     <section
       class="hero pb-3 bg-cover bg-center d-flex align-items-center"
       style="background: url(src/assets/img/hero-banner-alt.jpg)"
@@ -40,10 +39,10 @@
           <a class="category-item" href="shop.html"
             ><img
               class="img-fluid"
-              :src="documents[1].coverUrl"
+              :src="categories[1].coverUrl"
               alt=""
             /><strong class="category-item-title">{{
-              documents[1].name
+              categories[1].name
             }}</strong></a
           >
         </div>
@@ -51,18 +50,18 @@
           <a class="category-item mb-4" href="shop.html"
             ><img
               class="img-fluid"
-              :src="documents[3].coverUrl"
+              :src="categories[3].coverUrl"
               alt=""
             /><strong class="category-item-title">{{
-              documents[3].name
+              categories[3].name
             }}</strong></a
           ><a class="category-item" href="shop.html"
             ><img
               class="img-fluid"
-              :src="documents[2].coverUrl"
+              :src="categories[2].coverUrl"
               alt=""
             /><strong class="category-item-title">{{
-              documents[2].name
+              categories[2].name
             }}</strong></a
           >
         </div>
@@ -70,10 +69,10 @@
           <a class="category-item" href="shop.html"
             ><img
               class="img-fluid"
-              :src="documents[0].coverUrl"
+              :src="categories[0].coverUrl"
               alt=""
             /><strong class="category-item-title">{{
-              documents[0].name
+              categories[0].name
             }}</strong></a
           >
         </div>
@@ -89,15 +88,16 @@
       </header>
       <div class="row">
         <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
+        <div
+          class="col-xl-3 col-lg-4 col-sm-6"
+          v-for="(product, index) in products.slice(0, 8)"
+          :key="index"
+        >
           <div class="product text-center">
             <div class="position-relative mb-3">
               <div class="badge text-white bg-"></div>
               <a class="d-block" href="detail.html"
-                ><img
-                  class="img-fluid w-100"
-                  src="src/assets/img/product-1.jpg"
-                  alt="..."
+                ><img class="img-fluid w-100" :src="product.coverUrl" alt="..."
               /></a>
               <div class="product-overlay">
                 <ul class="mb-0 list-inline">
@@ -123,297 +123,9 @@
               </div>
             </div>
             <h6>
-              <a class="reset-anchor" href="detail.html"
-                >Kui Ye Chen’s AirPods</a
-              >
+              <a class="reset-anchor" href="detail.html">{{ product.name }}</a>
             </h6>
-            <p class="small text-muted">$250</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white bg-primary">Sale</div>
-              <a class="d-block" href="detail.html"
-                ><img
-                  class="img-fluid w-100"
-                  src="src/assets/img/product-2.jpg"
-                  alt="..."
-              /></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-outline-dark" href="#!"
-                      ><i class="far fa-heart"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-dark" href="cart.html"
-                      >Add to cart</a
-                    >
-                  </li>
-                  <li class="list-inline-item me-0">
-                    <a
-                      class="btn btn-sm btn-outline-dark"
-                      href="#productView"
-                      data-bs-toggle="modal"
-                      ><i class="fas fa-expand"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <h6>
-              <a class="reset-anchor" href="detail.html"
-                >Air Jordan 12 gym red</a
-              >
-            </h6>
-            <p class="small text-muted">$300</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white bg-"></div>
-              <a class="d-block" href="detail.html"
-                ><img
-                  class="img-fluid w-100"
-                  src="src/assets/img/product-3.jpg"
-                  alt="..."
-              /></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-outline-dark" href="#!"
-                      ><i class="far fa-heart"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-dark" href="cart.html"
-                      >Add to cart</a
-                    >
-                  </li>
-                  <li class="list-inline-item me-0">
-                    <a
-                      class="btn btn-sm btn-outline-dark"
-                      href="#productView"
-                      data-bs-toggle="modal"
-                      ><i class="fas fa-expand"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <h6>
-              <a class="reset-anchor" href="detail.html">Cyan cotton t-shirt</a>
-            </h6>
-            <p class="small text-muted">$25</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white bg-info">New</div>
-              <a class="d-block" href="detail.html"
-                ><img
-                  class="img-fluid w-100"
-                  src="src/assets/img/product-4.jpg"
-                  alt="..."
-              /></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-outline-dark" href="#!"
-                      ><i class="far fa-heart"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-dark" href="cart.html"
-                      >Add to cart</a
-                    >
-                  </li>
-                  <li class="list-inline-item me-0">
-                    <a
-                      class="btn btn-sm btn-outline-dark"
-                      href="#productView"
-                      data-bs-toggle="modal"
-                      ><i class="fas fa-expand"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <h6>
-              <a class="reset-anchor" href="detail.html"
-                >Timex Unisex Originals</a
-              >
-            </h6>
-            <p class="small text-muted">$351</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white bg-danger">Sold</div>
-              <a class="d-block" href="detail.html"
-                ><img
-                  class="img-fluid w-100"
-                  src="src/assets/img/product-5.jpg"
-                  alt="..."
-              /></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-outline-dark" href="#!"
-                      ><i class="far fa-heart"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-dark" href="cart.html"
-                      >Add to cart</a
-                    >
-                  </li>
-                  <li class="list-inline-item me-0">
-                    <a
-                      class="btn btn-sm btn-outline-dark"
-                      href="#productView"
-                      data-bs-toggle="modal"
-                      ><i class="fas fa-expand"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <h6>
-              <a class="reset-anchor" href="detail.html"
-                >Red digital smartwatch</a
-              >
-            </h6>
-            <p class="small text-muted">$250</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white bg-"></div>
-              <a class="d-block" href="detail.html"
-                ><img
-                  class="img-fluid w-100"
-                  src="src/assets/img/product-6.jpg"
-                  alt="..."
-              /></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-outline-dark" href="#!"
-                      ><i class="far fa-heart"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-dark" href="cart.html"
-                      >Add to cart</a
-                    >
-                  </li>
-                  <li class="list-inline-item me-0">
-                    <a
-                      class="btn btn-sm btn-outline-dark"
-                      href="#productView"
-                      data-bs-toggle="modal"
-                      ><i class="fas fa-expand"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <h6>
-              <a class="reset-anchor" href="detail.html">Nike air max 95</a>
-            </h6>
-            <p class="small text-muted">$300</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white bg-"></div>
-              <a class="d-block" href="detail.html"
-                ><img
-                  class="img-fluid w-100"
-                  src="src/assets/img/product-7.jpg"
-                  alt="..."
-              /></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-outline-dark" href="#!"
-                      ><i class="far fa-heart"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-dark" href="cart.html"
-                      >Add to cart</a
-                    >
-                  </li>
-                  <li class="list-inline-item me-0">
-                    <a
-                      class="btn btn-sm btn-outline-dark"
-                      href="#productView"
-                      data-bs-toggle="modal"
-                      ><i class="fas fa-expand"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <h6>
-              <a class="reset-anchor" href="detail.html"
-                >Joemalone Women prefume</a
-              >
-            </h6>
-            <p class="small text-muted">$25</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white bg-"></div>
-              <a class="d-block" href="detail.html"
-                ><img
-                  class="img-fluid w-100"
-                  src="src/assets/img/product-8.jpg"
-                  alt="..."
-              /></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-outline-dark" href="#!"
-                      ><i class="far fa-heart"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item m-0 p-0">
-                    <a class="btn btn-sm btn-dark" href="cart.html"
-                      >Add to cart</a
-                    >
-                  </li>
-                  <li class="list-inline-item me-0">
-                    <a
-                      class="btn btn-sm btn-outline-dark"
-                      href="#productView"
-                      data-bs-toggle="modal"
-                      ><i class="fas fa-expand"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <h6><a class="reset-anchor" href="detail.html">Apple Watch</a></h6>
-            <p class="small text-muted">$351</p>
+            <p class="small text-muted">${{ product.price }}</p>
           </div>
         </div>
       </div>
@@ -552,8 +264,9 @@ import getCollection from "../composables/getCollection";
 
 export default {
   setup() {
-    const { error, documents } = getCollection("categories");
-    return { error, documents };
+    const { error, documents: categories } = getCollection("categories");
+    const { documents: products } = getCollection("products");
+    return { error, categories, products };
   },
 };
 </script>
