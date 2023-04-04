@@ -23,7 +23,7 @@
             ></textarea>
           </div>
           <div class="form-group mb-4">
-            <input type="file" class="form-control" />
+            <input type="file" class="form-control" @change="handleChange" />
           </div>
 
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -42,18 +42,37 @@ import useCollection from "../../composables/useCollection";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "vue-router";
 import { timestamp } from "@/firebase/config";
+import useStorage from "../../composables/useStorage";
 
 export default {
   setup() {
     const title = ref("");
     const description = ref("");
     const { error, addDoc, isPending } = useCollection("categories");
+    const { filePath, url, uploadImage } = useStorage();
+    const file = ref(null);
+    // allowed file types
+    const types = ["image/png", "image/jpeg"];
+    const handleChange = (e) => {
+      let selected = e.target.files[0];
+      console.log(selected);
+      if (selected && types.includes(selected.type)) {
+        file.value = selected;
+        fileError.value = null;
+      } else {
+        file.value = null;
+        fileError.value = "Please select an image file (png or jpg)";
+      }
+    };
     const router = useRouter();
     const handleSubmit = async () => {
+      await uploadImage(file.value);
       const res = await addDoc({
         id: uuidv4(),
         name: title.value,
         description: description.value,
+        coverUrl: url.value,
+        filePath: filePath.value, // so we can delete it later
         createdAt: timestamp(),
       });
       if (!error.value) {
@@ -61,7 +80,7 @@ export default {
       }
     };
 
-    return { title, description, error, handleSubmit };
+    return { handleChange, title, description, error, handleSubmit };
   },
 };
 </script>

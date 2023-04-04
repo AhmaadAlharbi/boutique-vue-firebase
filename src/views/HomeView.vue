@@ -40,10 +40,10 @@
           <a class="category-item" href="shop.html"
             ><img
               class="img-fluid"
-              src="src/assets/img/cat-img-1.jpg"
+              :src="documents[1].coverUrl"
               alt=""
             /><strong class="category-item-title">{{
-              documents[2].name
+              documents[1].name
             }}</strong></a
           >
         </div>
@@ -51,7 +51,7 @@
           <a class="category-item mb-4" href="shop.html"
             ><img
               class="img-fluid"
-              src="src/assets/img/cat-img-2.jpg"
+              :src="documents[3].coverUrl"
               alt=""
             /><strong class="category-item-title">{{
               documents[3].name
@@ -59,10 +59,10 @@
           ><a class="category-item" href="shop.html"
             ><img
               class="img-fluid"
-              src="src/assets/img/cat-img-3.jpg"
+              :src="documents[2].coverUrl"
               alt=""
             /><strong class="category-item-title">{{
-              documents[0].name
+              documents[2].name
             }}</strong></a
           >
         </div>
@@ -70,10 +70,10 @@
           <a class="category-item" href="shop.html"
             ><img
               class="img-fluid"
-              src="src/assets/img/cat-img-4.jpg"
+              :src="documents[0].coverUrl"
               alt=""
             /><strong class="category-item-title">{{
-              documents[1].name
+              documents[0].name
             }}</strong></a
           >
         </div>
